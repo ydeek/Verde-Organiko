@@ -1,5 +1,7 @@
-import { Search } from "@material-ui/icons";
+
 import React from 'react'
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import Badge from '@material-ui/core/Badge';
 
 import styled from 'styled-components'
 
@@ -10,25 +12,63 @@ height:60px;
 const Wrapper = styled.div`
 padding: 10px 20px;
 display:flex;
+align-items:center;
 justify-content:space-between`;
 
+// LEFT
+
 const Left = styled.div`
-flex:1;`;
+flex: 1;
+display:flex;
+align-items: center;`;
 
 const Language = styled.span`
 font-size:10px;
 cursor:pointer;`;
 
 const SearchContainer = styled.div`
-border: 1px solid lightgray;`;
+border: 0.5px solid lightgray;
+display:flex;
+align-items: center;
+margin-left:25px;
+padding:5px`;
 
+const Input = styled.input`
+border:none;
+`;
+
+//CENTER
 
 const Center = styled.div`
-flex:1;`;
+flex:1;
+text-align:center
+;`;
 
+const Logo = styled.h1`
+
+font-weight:bold;
+font-size: 15px
+
+;
+`;
+
+const Green = styled.h1`
+color:green;
+align-items:center;
+
+`;
+
+// Right 
 const Right = styled.div`
-flex:1;`;
+flex:1;
+display: flex;
+align-items:center;
+justify-content:flex-end`;
 
+const MenuItem = styled.div`
+font-size:14px;
+cursor:pointer;
+margin-left:25px;`;
 
 const Navbar = () => {
     return (
@@ -37,15 +77,30 @@ const Navbar = () => {
                 <Left>
                     <Language>EN</Language>
                     <SearchContainer>
-                        input
-                        <Search />
+                        <Input />
+                        <Search style={{ color: "green", fontSize: 16 }} />
                     </SearchContainer>
                 </Left>
-                <Center>Center</Center>
-                <Right>Right</Right>
+                <Center><Logo><Green>Verde</Green> Organiko.</Logo></Center>
+                <Right>
+
+                    <MenuItem>RIGESTER</MenuItem>
+                    <MenuItem>SIGN IN </MenuItem>
+                    <MenuItem>
+                        <Badge badgeContent={4} color="primary">
+                            <ShoppingCartOutlined />
+                        </Badge>
+                    </MenuItem>
+
+                </Right>
             </Wrapper>
         </Container>
     )
 }
 
 export default Navbar
+
+// to make your whole item horizontal you can use flex box
+// to center them vertically align-items: center
+// to center them horizontally use justify-content
+
